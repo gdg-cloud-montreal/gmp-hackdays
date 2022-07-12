@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-6-monitoring-with-prometheus-operator" class="md-skip">
+        <a href="#scraping-metrics-app-metrics-with-gmp-and-managed-collections" class="md-skip">
           Skip to content
         </a>
       
@@ -282,24 +282,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0-create-regional-gke-cluster-on-gcp" class="md-nav__link">
-    0 Create Regional GKE Cluster on GCP
+  <a href="#1-configure-gke-cluster-with-gmp-with-managed-collection" class="md-nav__link">
+    1 Configure GKE cluster with GMP with managed collection
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-install-prometheus-operator-and-grafana-helm-charts" class="md-nav__link">
-    1 Install Prometheus Operator and Grafana Helm Charts
-  </a>
-  
-    <nav class="md-nav" aria-label="1 Install Prometheus Operator and Grafana Helm Charts">
+    <nav class="md-nav" aria-label="1 Configure GKE cluster with GMP with managed collection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-install-kube-prometheus-stack-helm-chart" class="md-nav__link">
-    1.1 Install kube-prometheus-stack helm chart
+  <a href="#11-create-regional-gke-cluster-on-gcp" class="md-nav__link">
+    1.1 Create Regional GKE Cluster on GCP
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-install-prometheus-operator-and-grafana-helm-charts" class="md-nav__link">
+    1.2 Install Prometheus Operator and Grafana Helm Charts
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Install Prometheus Operator and Grafana Helm Charts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-install-kube-prometheus-stack-helm-chart" class="md-nav__link">
+    1.2.1 Install kube-prometheus-stack helm chart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-observe-grafana-dashboards" class="md-nav__link">
+    1.2.2 Observe Grafana Dashboards
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-optional-deploy-onlineboutique-application-and-observe-app-compute-resources" class="md-nav__link">
+    1.2.3 (Optional) Deploy onlineboutique application and observe app compute resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-deploy-application-and-scrape-custom-metrics-with-podmonitor" class="md-nav__link">
+    1.2.4 Deploy application and scrape custom metrics with PodMonitor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125-deploy-application-and-scrape-custom-metrics-with-servicemonitor" class="md-nav__link">
+    1.2.5 Deploy application and scrape custom metrics with ServiceMonitor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -309,30 +350,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-observe-grafana-dashboards" class="md-nav__link">
-    4 Observe Grafana Dashboards
+  <a href="#2-migrate-from-prometheus-operator-to-google-managed-prometheus-with-self-deployed-collection" class="md-nav__link">
+    2 Migrate from Prometheus Operator to Google Managed Prometheus with self-deployed collection
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Migrate from Prometheus Operator to Google Managed Prometheus with self-deployed collection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#20-prerequisite" class="md-nav__link">
+    2.0 Prerequisite
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3-deploy-onlineboutique-application-and-observe-app-compute-resources" class="md-nav__link">
-    3 Deploy onlineboutique application and observe app compute resources
+        
+          <li class="md-nav__item">
+  <a href="#21-setup-gmp-collection" class="md-nav__link">
+    2.1 Setup GMP Collection
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4-deploy-application-and-scrape-custom-metrics" class="md-nav__link">
-    4 Deploy application and scrape custom metrics
+        
+          <li class="md-nav__item">
+  <a href="#22-verify-gmp-collection" class="md-nav__link">
+    2.2 Verify GMP Collection
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5-import-dashboard" class="md-nav__link">
-    5 Import dashboard
+        
+          <li class="md-nav__item">
+  <a href="#23-setup-prometheus-ui-for-gmp" class="md-nav__link">
+    2.3 Setup Prometheus UI for GMP
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-setup-grafana-for-gmp" class="md-nav__link">
+    2.4 Setup Grafana for GMP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-verify-gmp-cost" class="md-nav__link">
+    2.5 Verify GMP Cost
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -599,24 +667,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0-create-regional-gke-cluster-on-gcp" class="md-nav__link">
-    0 Create Regional GKE Cluster on GCP
+  <a href="#1-configure-gke-cluster-with-gmp-with-managed-collection" class="md-nav__link">
+    1 Configure GKE cluster with GMP with managed collection
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-install-prometheus-operator-and-grafana-helm-charts" class="md-nav__link">
-    1 Install Prometheus Operator and Grafana Helm Charts
-  </a>
-  
-    <nav class="md-nav" aria-label="1 Install Prometheus Operator and Grafana Helm Charts">
+    <nav class="md-nav" aria-label="1 Configure GKE cluster with GMP with managed collection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-install-kube-prometheus-stack-helm-chart" class="md-nav__link">
-    1.1 Install kube-prometheus-stack helm chart
+  <a href="#11-create-regional-gke-cluster-on-gcp" class="md-nav__link">
+    1.1 Create Regional GKE Cluster on GCP
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-install-prometheus-operator-and-grafana-helm-charts" class="md-nav__link">
+    1.2 Install Prometheus Operator and Grafana Helm Charts
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Install Prometheus Operator and Grafana Helm Charts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-install-kube-prometheus-stack-helm-chart" class="md-nav__link">
+    1.2.1 Install kube-prometheus-stack helm chart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-observe-grafana-dashboards" class="md-nav__link">
+    1.2.2 Observe Grafana Dashboards
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-optional-deploy-onlineboutique-application-and-observe-app-compute-resources" class="md-nav__link">
+    1.2.3 (Optional) Deploy onlineboutique application and observe app compute resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-deploy-application-and-scrape-custom-metrics-with-podmonitor" class="md-nav__link">
+    1.2.4 Deploy application and scrape custom metrics with PodMonitor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125-deploy-application-and-scrape-custom-metrics-with-servicemonitor" class="md-nav__link">
+    1.2.5 Deploy application and scrape custom metrics with ServiceMonitor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -626,30 +735,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-observe-grafana-dashboards" class="md-nav__link">
-    4 Observe Grafana Dashboards
+  <a href="#2-migrate-from-prometheus-operator-to-google-managed-prometheus-with-self-deployed-collection" class="md-nav__link">
+    2 Migrate from Prometheus Operator to Google Managed Prometheus with self-deployed collection
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Migrate from Prometheus Operator to Google Managed Prometheus with self-deployed collection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#20-prerequisite" class="md-nav__link">
+    2.0 Prerequisite
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3-deploy-onlineboutique-application-and-observe-app-compute-resources" class="md-nav__link">
-    3 Deploy onlineboutique application and observe app compute resources
+        
+          <li class="md-nav__item">
+  <a href="#21-setup-gmp-collection" class="md-nav__link">
+    2.1 Setup GMP Collection
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4-deploy-application-and-scrape-custom-metrics" class="md-nav__link">
-    4 Deploy application and scrape custom metrics
+        
+          <li class="md-nav__item">
+  <a href="#22-verify-gmp-collection" class="md-nav__link">
+    2.2 Verify GMP Collection
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5-import-dashboard" class="md-nav__link">
-    5 Import dashboard
+        
+          <li class="md-nav__item">
+  <a href="#23-setup-prometheus-ui-for-gmp" class="md-nav__link">
+    2.3 Setup Prometheus UI for GMP
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-setup-grafana-for-gmp" class="md-nav__link">
+    2.4 Setup Grafana for GMP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-verify-gmp-cost" class="md-nav__link">
+    2.5 Verify GMP Cost
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -673,51 +809,45 @@
               
                 
                 
-                <h1 id="lab-6-monitoring-with-prometheus-operator">Lab 6 Monitoring with Prometheus Operator<a class="headerlink" href="#lab-6-monitoring-with-prometheus-operator" title="Permanent link">&para;</a></h1>
-<p>The <code>Prometheus</code> Operator is a tool developed and opnesourced by CoreOS that aims to automate manual operations of Prometheus and Alertmanager on Kubernetes using Kubernetes Custom Resource Definitions (CRDs).</p>
-<p>The <code>Prometheus</code> Operator provides easy monitoring definitions for Kubernetes services and deployment and management of Prometheus instances.</p>
-<p>Once installed, the Prometheus Operator provides the following features:</p>
-<ul>
-<li><strong>Kubernetes Custom Resources:</strong> Use <code>Kubernetes</code> custom resources to deploy and manage <code>Prometheus</code>, <code>Alertmanager</code>, and related components.</li>
-<li><strong>Simplified Deployment Configuration:</strong> Configure the fundamentals of Prometheus like versions, persistence, retention policies, and replicas from a native Kubernetes resource.</li>
-<li><strong>Target Services via Labels:</strong> Automatically generate monitoring target configurations based on familiar Kubernetes label queries; no need to learn a Prometheus specific configuration language.</li>
-</ul>
-<p><strong>Objective:</strong></p>
-<ul>
-<li>Explore the operators' deployment setup</li>
-<li>Configure <code>ServiceMonitor</code>, which declaratively specifies how groups of Kubernetes services should be monitored. The Operator automatically generates Prometheus scrape configuration based on the current state of the objects in the API server.</li>
-<li>Configure <code>PrometheusRule</code> and <code>AlertmanagerConfig</code> to be able to send Slack alerts</li>
-</ul>
-<h2 id="0-create-regional-gke-cluster-on-gcp">0 Create Regional GKE Cluster on GCP<a class="headerlink" href="#0-create-regional-gke-cluster-on-gcp" title="Permanent link">&para;</a></h2>
+                <h1 id="scraping-metrics-app-metrics-with-gmp-and-managed-collections">Scraping Metrics App metrics with GMP and Managed Collections<a class="headerlink" href="#scraping-metrics-app-metrics-with-gmp-and-managed-collections" title="Permanent link">&para;</a></h1>
+<h2 id="1-configure-gke-cluster-with-gmp-with-managed-collection">1 Configure GKE cluster with GMP with managed collection<a class="headerlink" href="#1-configure-gke-cluster-with-gmp-with-managed-collection" title="Permanent link">&para;</a></h2>
+<h3 id="11-create-regional-gke-cluster-on-gcp">1.1 Create Regional GKE Cluster on GCP<a class="headerlink" href="#11-create-regional-gke-cluster-on-gcp" title="Permanent link">&para;</a></h3>
 <p><strong>Step 1</strong> Enable the Google Kubernetes Engine API.</p>
 <div class="codehilite"><pre><span></span><code>gcloud services enable container.googleapis.com
 </code></pre></div>
 
 <p><strong>Step 2</strong> From the cloud shell, run the following command to create a cluster with 1 node:</p>
-<div class="codehilite"><pre><span></span><code>gcloud container clusters create k8s-prometheus-labs \
+<div class="codehilite"><pre><span></span><code>gcloud container clusters create k8s-gmp-labs \
 --region us-central1 \
 --enable-ip-alias \
 --enable-network-policy \
 --num-nodes 1 \
---machine-type &quot;t2d-standard-8&quot; \
+--machine-type &quot;e2-standard-4&quot; \
 --release-channel regular
 </code></pre></div>
 
 <div class="codehilite"><pre><span></span><code>gcloud container clusters get-credentials k8s-prometheus-labs --region us-central1
 </code></pre></div>
 
-<p><strong>Step 3: (Optional)</strong> Setup kubectx</p>
-<div class="codehilite"><pre><span></span><code>sudo apt install kubectx
+<p><strong>Step 3: (Optional)</strong> Setup <code>kubectx</code> and <code>kubens</code></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><code>kubectx</code> + <code>kubens</code>: Power tools for <code>kubectl</code>:
+- <code>kubectx</code> helps you switch between clusters back and forth
+- <code>kubens</code> helps you switch between Kubernetes namespaces smoothly</p>
+</div>
+<p>Install As <a href="https://github.com/ahmetb/kubectx#kubectl-plugins-macos-and-linux">kubectl plugins(macOS &amp; Linux)</a></p>
+<div class="codehilite"><pre><span></span><code>kubectl krew install ctx
+kubectl krew install ns
 </code></pre></div>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>we've installed <code>kubectx</code> + <code>kubens</code>: Power tools for <code>kubectl</code>:
-- <code>kubectx</code> helps you switch between clusters back and forth
-- <code>kubens</code> helps you switch between Kubernetes namespaces smoothly</p>
+<p>Google Cloud Console comes with <code>kubectx</code> and <code>kubens</code> setup.
+However above steps can be used to setup your local shell.</p>
 </div>
-<h2 id="1-install-prometheus-operator-and-grafana-helm-charts">1 Install Prometheus Operator and Grafana Helm Charts<a class="headerlink" href="#1-install-prometheus-operator-and-grafana-helm-charts" title="Permanent link">&para;</a></h2>
-<h3 id="11-install-kube-prometheus-stack-helm-chart">1.1 Install <code>kube-prometheus-stack</code> helm chart<a class="headerlink" href="#11-install-kube-prometheus-stack-helm-chart" title="Permanent link">&para;</a></h3>
+<h3 id="12-install-prometheus-operator-and-grafana-helm-charts">1.2 Install Prometheus Operator and Grafana Helm Charts<a class="headerlink" href="#12-install-prometheus-operator-and-grafana-helm-charts" title="Permanent link">&para;</a></h3>
+<h4 id="121-install-kube-prometheus-stack-helm-chart">1.2.1 Install <code>kube-prometheus-stack</code> helm chart<a class="headerlink" href="#121-install-kube-prometheus-stack-helm-chart" title="Permanent link">&para;</a></h4>
 <p><strong>kube-prometheus</strong>
 <a href="https://github.com/prometheus-operator/kube-prometheus">kube-prometheus</a> provides example configurations for a complete cluster monitoring
 stack based on Prometheus and the Prometheus Operator.  This includes deployment of multiple Prometheus and Alertmanager instances,
@@ -732,9 +862,12 @@ helm repo update
 </code></pre></div>
 
 <p><strong>Step 2</strong> Fetch  <code>Helm</code> repository to local filesystem</p>
-<div class="codehilite"><pre><span></span><code>cd ~/$MY_REPO/notepad-infrastructure/helm
-helm pull prometheus-community/kube-prometheus-stack
-tar -xvzf kube-prometheus-stack-18.0.5.tgz
+<div class="codehilite"><pre><span></span><code>mkdir ~/gmp-setup
+cd ~/gmp-setup
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>helm pull prometheus-community/kube-prometheus-stack --version 35.6.0
+tar -xvzf kube-prometheus-stack-35.6.0.tgz
 cd kube-prometheus-stack
 tree -L 2
 </code></pre></div>
@@ -794,7 +927,7 @@ grafana:
   ingress:
     enabled: true
     path: /*
-    pathType: Prefix
+    pathType: ImplementationSpecific
   service:
     type: NodePort
 EOF
@@ -811,15 +944,14 @@ EOF
 
 <p><strong>Step 4</strong> Install Helm Chart to <code>monitoring</code> namespace</p>
 <div class="codehilite"><pre><span></span><code>kubectl create ns monitoring
-helm install prometheus-stack prometheus-community/kube-prometheus-stack -n monitoring --values grafana_values.yaml
 kubens monitoring
+helm install prometheus-stack prometheus-community/kube-prometheus-stack --version 35.6.0 --values grafana_values.yaml
 </code></pre></div>
 
-<h2 id="4-observe-grafana-dashboards">4 Observe Grafana Dashboards<a class="headerlink" href="#4-observe-grafana-dashboards" title="Permanent link">&para;</a></h2>
+<h4 id="122-observe-grafana-dashboards">1.2.2 Observe Grafana Dashboards<a class="headerlink" href="#122-observe-grafana-dashboards" title="Permanent link">&para;</a></h4>
 <p><strong>Step 1:</strong> Locate Grafana Dashboard URL:</p>
 <div class="codehilite"><pre><span></span><code>kubectl get svc prometheus-stack-grafana
-
-kubectl port-forward svc/prometheus-stack-grafana 3001:3000
+kubectl get ing
 </code></pre></div>
 
 <p><strong>Step 2:</strong> Launch the Grafana Dashboard and see Predefined Dashboards:</p>
@@ -835,7 +967,7 @@ kubectl port-forward svc/prometheus-stack-grafana 3001:3000
 <p>You should see your Grafana interface</p>
 </div>
 <p><strong>Step 2</strong> Access Grafana Dashboard and see Predefined Dashboards:</p>
-<p><img alt="alt text" src="images/grafana_dashboard.png" /></p>
+<p><img alt="alt text" src="../images/grafana_dashboard.png" /></p>
 <p><strong>Step 3</strong> Observe following Dashboards:</p>
 <div class="codehilite"><pre><span></span><code>General /Kubernetes / Compute Resources / Cluster
 </code></pre></div>
@@ -871,7 +1003,7 @@ General / etcd
 <p class="admonition-title">Note</p>
 <p>some of the Dashboards (etcd, Scheduler, Controller Manager) are empty, this is because GKE is Managed Kubernetes so some metrics are not available for scraping.</p>
 </div>
-<h2 id="3-deploy-onlineboutique-application-and-observe-app-compute-resources">3 Deploy onlineboutique application and observe app compute resources<a class="headerlink" href="#3-deploy-onlineboutique-application-and-observe-app-compute-resources" title="Permanent link">&para;</a></h2>
+<h4 id="123-optional-deploy-onlineboutique-application-and-observe-app-compute-resources">1.2.3 (Optional) Deploy onlineboutique application and observe app compute resources<a class="headerlink" href="#123-optional-deploy-onlineboutique-application-and-observe-app-compute-resources" title="Permanent link">&para;</a></h4>
 <p>Deploy microservices application <code>onlineboutique</code>:</p>
 <p><strong>Step 1</strong> Create Namespace <code>onlineboutique</code></p>
 <div class="codehilite"><pre><span></span><code>kubectl create ns onlineboutique
@@ -902,7 +1034,7 @@ General /Kubernetes / Compute Resources / Namespace (Workloads)
 <p class="admonition-title">Summary</p>
 <p>Observe CPU and Memory per Pods</p>
 </div>
-<h2 id="4-deploy-application-and-scrape-custom-metrics">4 Deploy application and scrape custom metrics<a class="headerlink" href="#4-deploy-application-and-scrape-custom-metrics" title="Permanent link">&para;</a></h2>
+<h4 id="124-deploy-application-and-scrape-custom-metrics-with-podmonitor">1.2.4 Deploy application and scrape custom metrics with <code>PodMonitor</code><a class="headerlink" href="#124-deploy-application-and-scrape-custom-metrics-with-podmonitor" title="Permanent link">&para;</a></h4>
 <p>Deploy application <code>prom-example</code>:</p>
 <p><strong>Step 1</strong> Create Namespace <code>prom-test</code></p>
 <div class="codehilite"><pre><span></span><code>kubectl create ns prom-test
@@ -910,7 +1042,7 @@ kubens prom-test
 </code></pre></div>
 
 <p><strong>Step 2</strong> Create deployment <code>prom-example</code></p>
-<div class="codehilite"><pre><span></span><code>cat &lt;&lt; EOF&gt;&gt; example-app.yaml
+<div class="codehilite"><pre><span></span><code>cat &lt;&lt; EOF&gt;&gt; prom-example.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -941,7 +1073,7 @@ EOF
 </code></pre></div>
 
 <p><strong>Step 4</strong> Deploy <code>prom-example</code> application</p>
-<div class="codehilite"><pre><span></span><code>kubectl apply -f example-app.yaml
+<div class="codehilite"><pre><span></span><code>kubectl apply -f prom-example.yaml
 </code></pre></div>
 
 <div class="codehilite"><pre><span></span><code>kubectl get pods
@@ -953,19 +1085,37 @@ EOF
 
 <p><strong>Step 6</strong> Scrape Pod Metrics using <code>PodMonitor</code> crd</p>
 <p>The operator uses <code>ServiceMonitors</code> or <code>PodMonitor</code> to define a set of targets to be monitored by Prometheus. It uses label selectors to define which <code>Services</code> or <code>Pod</code> to monitor, the namespaces to look for, and the port on which the metrics are exposed.</p>
-<p>Create a file pod-monitor.yaml with the following content to add a <code>PodMonitor</code> so that the Prometheus server scrapes only its own metrics endpoints:</p>
-<p>Define a PodMonitor in a manifest file <code>podmonitor.yaml</code> to select only this deployment pod </p>
+<p>First let's find out how <code>kind: Prometheus</code> will select <code>PodMonitor</code> using <code>serviceMonitorSelector</code> ?</p>
+<div class="codehilite"><pre><span></span><code>kubens monitoring
+kubectl get prometheuses.monitoring.coreos.com prometheus-stack-kube-prom-prometheus -o yaml | grep -C5 podMonitorSelector
+</code></pre></div>
+
+<p><strong>Output:</strong> </p>
+<div class="codehilite"><pre><span></span><code>  podMonitorSelector:
+    matchLabels:
+      release: prometheus-stack
+</code></pre></div>
+
+<div class="admonition result">
+<p class="admonition-title">Result</p>
+<p>Prometheus Operator will select all <code>podMonitor</code> that match match label: <code>release: prometheus-stack</code></p>
+</div>
+<p>Create a file <code>pod-monitor.yaml</code> with the following content to add a <code>PodMonitor</code> so that the Prometheus server scrapes only its own metrics endpoints:</p>
+<p>Define a PodMonitor in a manifest file <code>podmonitor.yaml</code> by selecting <code>app: prom-example</code> labels in namespace <code>prom-test</code> and scrape metrics from <code>port: metrics</code>. Define <code>PodMonitor</code> labels as <code>release: prometheus-stack</code>, so that Prometheus operator can select them. </p>
 <div class="codehilite"><pre><span></span><code>cat &lt;&lt; EOF&gt;&gt; podmonitor.yaml
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
-  name: example-app
+  name: prom-example
   labels:
-    team: frontend
+    release: prometheus-stack
 spec:
+  namespaceSelector:
+    matchNames:
+      - prom-test
   selector:
     matchLabels:
-      app: example-app
+      app: prom-example
   podMetricsEndpoints:
   - port: metrics
 EOF
@@ -974,134 +1124,298 @@ EOF
 <div class="codehilite"><pre><span></span><code>kubectl apply -f podmonitor.yaml
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>cat &lt;&lt; EOF&gt;&gt; prometheus-service-account.yaml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: prometheus
-EOF
+<p><strong>Step 3</strong> Observe that <code>PodMonitor</code> been picked up by Prometheus Operator</p>
+<div class="codehilite"><pre><span></span><code>kubectl -n monitoring get secret prometheus-prometheus-stack-kube-prom-prometheus -ojson | jq -r &#39;.data[&quot;prometheus.yaml.gz&quot;]&#39; | base64 -d | gunzip | grep &quot;prom-example&quot;
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>cat &lt;&lt; EOF&gt;&gt; prometheus-cluster-role-binding.yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
+<h4 id="125-deploy-application-and-scrape-custom-metrics-with-servicemonitor">1.2.5 Deploy application and scrape custom metrics with <code>ServiceMonitor</code><a class="headerlink" href="#125-deploy-application-and-scrape-custom-metrics-with-servicemonitor" title="Permanent link">&para;</a></h4>
+<p><strong>Step 1</strong> Deploy application <code>example-app</code> in <code>default</code> namespace:</p>
+<div class="codehilite"><pre><span></span><code>cat &lt;&lt; EOF&gt;&gt; example-app.yaml
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: prometheus
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: prometheus
-subjects:
-- kind: ServiceAccount
-  name: prometheus
-  namespace: default
-EOF
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>cat &lt;&lt; EOF&gt;&gt; prometheus-cluster-role.yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: prometheus
-rules:
-- apiGroups: [&quot;&quot;]
-  resources:
-  - nodes
-  - nodes/metrics
-  - services
-  - endpoints
-  - pods
-  verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]
-- apiGroups: [&quot;&quot;]
-  resources:
-  - configmaps
-  verbs: [&quot;get&quot;]
-- apiGroups:
-  - networking.k8s.io
-  resources:
-  - ingresses
-  verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]
-- nonResourceURLs: [&quot;/metrics&quot;]
-  verbs: [&quot;get&quot;]
-EOF
-</code></pre></div>
-
-<p>kubectl apply -f prometheus-service-account.yaml
-kubectl apply -f prometheus-cluster-role.yaml
-kubectl apply -f prometheus-cluster-role-binding.yaml</p>
-<div class="codehilite"><pre><span></span><code>cat &lt;&lt; EOF&gt;&gt; prom_resource.yaml
-apiVersion: monitoring.coreos.com/v1
-kind: Prometheus
-metadata:
-  name: prometheus
+  name: example-app
 spec:
-  serviceAccountName: prometheus
-  serviceMonitorSelector:
-    matchLabels:
-      team: frontend
-  podMonitorSelector:
-    matchLabels:
-      team: frontend
-  resources:
-    requests:
-      memory: 400Mi
-  enableAdminAPI: false
-EOF
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>kubectl apply -f prom_resource.yaml
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>kind: PodMonitoring
-metadata:
-  name: prom-example
-spec:
+  replicas: 3
   selector:
     matchLabels:
-      app: prom-example
-  endpoints:
-  - port: metrics
-    interval: 30s
+      app: example-app
+  template:
+    metadata:
+      labels:
+        app: example-app
+    spec:
+      containers:
+      - name: example-app
+        image: fabxc/instrumented_app
+        ports:
+        - name: web
+          containerPort: 8080
+EOF
 </code></pre></div>
 
-<h2 id="5-import-dashboard">5 Import dashboard<a class="headerlink" href="#5-import-dashboard" title="Permanent link">&para;</a></h2>
-<p><strong>Step 1</strong> Search Kubernetes related Dashboards:</p>
-<div class="codehilite"><pre><span></span><code>https://grafana.com/grafana/dashboards
+<div class="codehilite"><pre><span></span><code>cat &lt;&lt; EOF&gt;&gt; example-svc.yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: example-app
+  labels:
+    app: example-app
+spec:
+  selector:
+    app: example-app
+  ports:
+  - name: web
+    port: 8080
+EOF
 </code></pre></div>
 
-<p>Filter by:  <code>Name / Description</code> - </p>
-<div class="codehilite"><pre><span></span><code>Kubernetes Deployment Statefulset Daemonset metrics
+<div class="codehilite"><pre><span></span><code>kubens default
+kubectl apply -f example-app.yaml
+kubectl apply -f example-svc.yaml
 </code></pre></div>
 
-<p>This will give you several outputs, we will use following Dashboards:</p>
-<div class="codehilite"><pre><span></span><code>https://grafana.com/grafana/dashboards/8588
+<p><strong>Step 2</strong> Deploy <code>ServiceMonitor</code> in <code>monitoring</code> namespace</p>
+<p>First let's find out how <code>kind: Prometheus</code> will select <code>PodMonitor</code> using <code>serviceMonitorSelector</code> ?</p>
+<div class="codehilite"><pre><span></span><code>kubens monitoring
+kubectl get prometheuses.monitoring.coreos.com prometheus-stack-kube-prom-prometheus -o yaml | grep -C5 serviceMonitorSelector
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>Get this dashboard:
-8588
-Copy ID to Clipboard
+<p><strong>Output:</strong> </p>
+<div class="codehilite"><pre><span></span><code>  podMonitorSelector:
+    matchLabels:
+      release: prometheus-stack
 </code></pre></div>
 
-<p><strong>Step 2</strong> To import a dashboard we will start by creating a new <code>Folder</code>, click the + icon in the side menu, and then click Folder</p>
-<p>Name folder:</p>
-<div class="codehilite"><pre><span></span><code>Custom
-</code></pre></div>
-
-<p><strong>Step 3</strong> To import a dashboard click the + icon in the side menu, and then click Import.</p>
-<p>In Import via grafana.com prompt Paste Grafana URL</p>
-<div class="codehilite"><pre><span></span><code>8588
-</code></pre></div>
-
-<p>Choose:</p>
-<ul>
-<li>Folder: <code>Custom</code></li>
-<li>Select Prometheus data source: <code>Prometheus (default)</code> </li>
-</ul>
-<div class="admonition extra">
-<p class="admonition-title">Extra</p>
-<p>Experiments with different dashboards, e.g. ElasticSearch, Nginx, Cert-Manager, Istio</p>
+<div class="admonition result">
+<p class="admonition-title">Result</p>
+<p>Prometheus Operator will select all <code>podMonitor</code> that match match label: <code>release: prometheus-stack</code></p>
 </div>
+<div class="codehilite"><pre><span></span><code>cat &lt;&lt; EOF&gt;&gt; example-svc-mon.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: example-app
+  labels:
+    release: prometheus-stack
+spec:
+  namespaceSelector:
+    matchNames:
+      - default
+  selector:
+    matchLabels:
+      app: example-app
+  endpoints:
+  - port: web
+EOF
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>kubens monitoring
+kubectl apply -f example-svc-mon.yaml
+</code></pre></div>
+
+<p>Verify <code>servicemonitor</code> has been created in <code>monitoring</code> namespace</p>
+<div class="codehilite"><pre><span></span><code>kubectl get -A servicemonitor.monitoring.coreos.com
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Creation of <code>servicemonitor</code> can be done in application namespace as well</p>
+</div>
+<p><strong>Step 3</strong> Observe that ServiceMonitor been picked up by Prometheus Operator</p>
+<div class="codehilite"><pre><span></span><code>kubectl -n monitoring get secret prometheus-prometheus-stack-kube-prom-prometheus -ojson | jq -r &#39;.data[&quot;prometheus.yaml.gz&quot;]&#39; | base64 -d | gunzip | grep &quot;example-app&quot;
+</code></pre></div>
+
+<p><strong>Step 4</strong> Observe Prometheus UI and check that <code>servicemonitor</code> has been discovered under <code>Targets</code> and <code>ServiceDiscovery</code>:</p>
+<div class="codehilite"><pre><span></span><code>kubectl port-forward svc/prometheus-stack-kube-prom-prometheus  8080:9090
+</code></pre></div>
+
+<p><strong>Step 5</strong> <strong>Step 4</strong> Observe Grafana UI and try to build a dashboards using on the exposed Prometheus metrics emitted by <code>example-app</code> app:</p>
+<p>The following metrics are exposed:</p>
+<ul>
+<li><code>version</code> - of type <em>gauge</em> - containing the app version - as a constant metric value <code>1</code> and label <code>version</code>, representing this app version</li>
+<li><code>http_requests_total</code> - of type <em>counter</em> - representing the total numbere of incoming HTTP requests</li>
+<li><code>http_request_duration_seconds</code> - of type <em>histogram</em>, representing duration of all HTTP requests</li>
+<li><code>http_request_duration_seconds_count</code>- total count of all incoming HTTP requeests</li>
+<li><code>http_request_duration_seconds_sum</code> - total duration in seconds of all incoming HTTP requests</li>
+<li><code>http_request_duration_seconds_bucket</code> - a histogram representation of the duration of the incoming HTTP requests</li>
+</ul>
+<p>The sample output of the <code>/metric</code> endpoint after 5 incoming HTTP requests shown below.</p>
+<p>Note: with no initial incoming request, only <code>version</code> metric is reported.</p>
+<div class="codehilite"><pre><span></span><code># HELP http_request_duration_seconds Duration of all HTTP requests
+# TYPE http_request_duration_seconds histogram
+http_request_duration_seconds_bucket{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;,le=&quot;0.005&quot;} 5
+http_request_duration_seconds_bucket{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;,le=&quot;0.01&quot;} 5
+http_request_duration_seconds_bucket{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;,le=&quot;0.025&quot;} 5
+http_request_duration_seconds_bucket{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;,le=&quot;0.05&quot;} 5
+http_request_duration_seconds_bucket{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;,le=&quot;0.1&quot;} 5
+http_request_duration_seconds_bucket{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;,le=&quot;0.25&quot;} 5
+http_request_duration_seconds_bucket{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;,le=&quot;0.5&quot;} 5
+http_request_duration_seconds_bucket{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;,le=&quot;1&quot;} 5
+http_request_duration_seconds_bucket{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;,le=&quot;2.5&quot;} 5
+http_request_duration_seconds_bucket{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;,le=&quot;5&quot;} 5
+http_request_duration_seconds_bucket{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;,le=&quot;10&quot;} 5
+http_request_duration_seconds_bucket{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;,le=&quot;+Inf&quot;} 5
+http_request_duration_seconds_sum{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;} 0.00047495999999999997
+http_request_duration_seconds_count{code=&quot;200&quot;,handler=&quot;found&quot;,method=&quot;get&quot;} 5
+# HELP http_requests_total Count of all HTTP requests
+# TYPE http_requests_total counter
+http_requests_total{code=&quot;200&quot;,method=&quot;get&quot;} 5
+# HELP version Version information about this binary
+# TYPE version gauge
+version{version=&quot;v0.3.0&quot;} 1
+</code></pre></div>
+
+<h2 id="2-migrate-from-prometheus-operator-to-google-managed-prometheus-with-self-deployed-collection">2 Migrate from Prometheus Operator to Google Managed Prometheus with self-deployed collection<a class="headerlink" href="#2-migrate-from-prometheus-operator-to-google-managed-prometheus-with-self-deployed-collection" title="Permanent link">&para;</a></h2>
+<h3 id="20-prerequisite">2.0 Prerequisite<a class="headerlink" href="#20-prerequisite" title="Permanent link">&para;</a></h3>
+<p>Verify SA account has correct permissions:</p>
+<p><strong>Option 1:</strong> Using GKE with <code>default</code> Compute Service Account, should have all requires permissions as it is using Editor role (roles/editor) on the project. (without WI enabled)</p>
+<p><strong>Option 2:</strong> Using GKE with custom Service Account for Nodes (without WI enabled)</p>
+<p>Make sure default compute <code>SA</code> has <code>monitoring.metricWriter</code> and <code>monitoring.viewer</code> roles:</p>
+<p>gcloud projects add-iam-policy-binding $PROJECT_ID \
+ --member='serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com' \
+ --role=roles/monitoring.metricWriter</p>
+<p>gcloud projects add-iam-policy-binding $PROJECT_ID \
+ --member='serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com' \
+ --role=roles/monitoring.viewer</p>
+<p>gcloud projects get-iam-policy $PROJECT_ID</p>
+<p><strong>Option 3:</strong> Using GKE with WI</p>
+<p>Follow the <a href="https://cloud.google.com/stackdriver/docs/managed-prometheus/setup-unmanaged#gmp-wli-svcacct">Configure a service account for Workload Identity</a> instructions</p>
+<p><strong>Option 4:</strong> Non-GKE Kubernetes clusters</p>
+<p>Follow the <a href="https://cloud.google.com/stackdriver/docs/managed-prometheus/setup-unmanaged#explicit-credentials">Provide credentials explicitly</a> instructions</p>
+<h3 id="21-setup-gmp-collection">2.1 Setup GMP Collection<a class="headerlink" href="#21-setup-gmp-collection" title="Permanent link">&para;</a></h3>
+<p>While Prometheus Operator, provides us great APIs to declaratively configure Prometheus tasks such as scrape metrics and configure alerts and etc.  Prometheus Operator itself doesn't solve problem of central monitoring system as it's deployed per K8s Cluster or per-namespace, and usually Organizations have many  K8s Clusters and they looking for a central pain of glass view.
+Another challenge that Prometheus Operator  doesn't solve is long term storage.</p>
+<p>To address above challenges we can use GMP with self-deployed collection. This way once can still use existing <code>Prometheus Operator</code> configuration using CRDs and Declarative APIs and take advantage of Google Managed Prometheus Datastore - based on - Monarch, that can handle incredible scale and store 2 years of metrics at no cost.</p>
+<p>See Reference doc - <a href="https://cloud.google.com/stackdriver/docs/managed-prometheus/setup-unmanaged">Get started with self-deployed collection</a></p>
+<p><strong>Step 1</strong>  Create <code>prometheus-stack</code> Helm env var file, that will update from prometheus operator binary to GMP binary:</p>
+<div class="codehilite"><pre><span></span><code>cat &lt;&lt; EOF&gt;&gt; update_to_gmp.yaml
+prometheus:
+  prometheusSpec:
+    image:
+      repository: gke.gcr.io/prometheus-engine/prometheus
+      tag: v2.35.0-gmp.2-gke.0
+grafana:
+  adminPassword: admin
+  ingress:
+    enabled: true
+    path: /*
+    pathType: ImplementationSpecific
+  service:
+    type: NodePort
+EOF
+</code></pre></div>
+
+<p><strong>Step 1</strong>  Update <code>prometheus-stack</code> Helm chart with GMP binary (image):</p>
+<div class="codehilite"><pre><span></span><code>kubectl get -A prometheuses.monitoring.coreos.com
+</code></pre></div>
+
+<p><strong>Output:</strong> </p>
+<div class="codehilite"><pre><span></span><code>          image: &quot;quay.io/prometheus-operator/prometheus-operator:v0.56.3&quot;
+</code></pre></div>
+
+<p><strong>Step 2</strong> Let's replace the <code>prometheus-operator</code> image with <code>gmp</code> image with Helm:</p>
+<div class="codehilite"><pre><span></span><code>helm upgrade prometheus-stack prometheus-community/kube-prometheus-stack --version 35.6.0 --values update_to_gmp.yaml
+</code></pre></div>
+
+<p><strong>Step 3</strong> Verify that Prometheus Operator is configured with GMP binary:</p>
+<div class="codehilite"><pre><span></span><code>kubectl get -A prometheuses.monitoring.coreos.com
+</code></pre></div>
+
+<p><strong>Output:</strong> </p>
+<div class="codehilite"><pre><span></span><code>monitoring   prometheus-stack-kube-prom-prometheus   v2.35.0-gmp.2-gke.0   1      50m
+</code></pre></div>
+
+<h3 id="22-verify-gmp-collection">2.2 Verify GMP Collection<a class="headerlink" href="#22-verify-gmp-collection" title="Permanent link">&para;</a></h3>
+<p>See Reference doc - <a href="https://cloud.google.com/stackdriver/docs/managed-prometheus/query#promui-deploy">Managed Service for Prometheus page</a></p>
+<p><strong>Step 1</strong> Verify that Prometheus data is being exported and stored at Managed Service for Prometheus Datastore:</p>
+<p>The simplest way to verify that your Prometheus data is being exported is to use the PromQL-based Managed Service for Prometheus page in the Google Cloud console.</p>
+<p>To view this page, do the following:</p>
+<ol>
+<li>
+<p>In the Google Cloud console, go to Monitoring or use the following button:</p>
+</li>
+<li>
+<p>In the Monitoring navigation pane, click Managed Prometheus.</p>
+</li>
+</ol>
+<p>On the Managed Service for Prometheus page, you can use PromQL queries to retrieve and chart data collected with the managed service. This page can query only data collected by Managed Service for Prometheus.</p>
+<p>The following screenshot shows a chart that displays the <code>up</code> metric</p>
+<p>To deploy the Prometheus UI for Managed Service for Prometheus, run the following commands:</p>
+<p>Deploy the frontend service and configure it to query the scoping project of your metrics scope of your choice:</p>
+<h3 id="23-setup-prometheus-ui-for-gmp">2.3 Setup Prometheus UI for GMP<a class="headerlink" href="#23-setup-prometheus-ui-for-gmp" title="Permanent link">&para;</a></h3>
+<p>To deploy the Prometheus UI for Managed Service for Prometheus, run the following commands.</p>
+<p><strong>Step 1</strong>  Deploy the <code>Prometheus UI</code> frontend service inside of namespace where Grafana setup is running. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to continue using a <code>Grafana</code> deployment installed by kube-prometheus, then deploy the Prometheus UI in the <code>monitoring</code> namespace instead. However for production use cases Grafana typically deployed with <code>Grafana</code> Helm Chart or <code>Grafana</code> Operator Chart, allowing operators deploy their customer Dashboards.</p>
+</div>
+<div class="codehilite"><pre><span></span><code>export GRAFANA_NAMESPACE=monitoring
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>curl https://raw.githubusercontent.com/GoogleCloudPlatform/prometheus-engine/v0.4.1/examples/frontend.yaml |
+sed &#39;s/\$PROJECT_ID/gcp-demos-331123/&#39; |
+kubectl apply -n $GRAFANA_NAMESPACE -f -
+</code></pre></div>
+
+<p><strong>Step 2</strong>  Port-forward the <code>frontend</code> service to your local machine. The following example forwards the service to port 9090:</p>
+<div class="codehilite"><pre><span></span><code>kubectl -n $GRAFANA_NAMESPACE port-forward svc/frontend 8080:9090
+</code></pre></div>
+
+<h3 id="24-setup-grafana-for-gmp">2.4 Setup Grafana for GMP<a class="headerlink" href="#24-setup-grafana-for-gmp" title="Permanent link">&para;</a></h3>
+<p>Google Cloud APIs all require authentication using OAuth2; however, Grafana doesn't support OAuth2 authentication for Prometheus data sources. To use Grafana with Managed Service for Prometheus, we've deployed Prometheus UI as an authentication proxy in a previous step.</p>
+<p><strong>Option 1:</strong> Configure existing Grafana Dashboard to use GMP</p>
+<p>If you would like to take advantage of you existing Dashboards and already deployed Grafana,
+the only steps needed is to create a <code>Data Source</code> for Google Managed Prometheus described in this <a href="https://cloud.google.com/stackdriver/docs/managed-prometheus/query#ui-grafana">reference</a></p>
+<p>Once configured you can redirect existing dashboards to the new <code>Data Source</code>, or create the new once.</p>
+<p><strong>Option 2:</strong> Configure Grafana Dashboard that comes with GMP </p>
+<p>Configure Grafana Dashboard that comes with GMP, following this <a href="https://cloud.google.com/stackdriver/docs/managed-prometheus/query#grafana-deploy">steps</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option is good only for quick testing Grafana</p>
+</div>
+<p><strong>Option 3:</strong> Use Grafana Helm Charts or Grafana Operator</p>
+<p>For production deployment it is preferred to use  <a href="https://artifacthub.io/packages/helm/grafana/grafana">Grafana Helm Chart</a> or <a href="https://artifacthub.io/packages/olm/community-operators/grafana-operator">Grafana Operator</a> as you can define and recreate you dashboards via json or CRDs in consistent manner.</p>
+<h3 id="25-verify-gmp-cost">2.5 Verify GMP Cost<a class="headerlink" href="#25-verify-gmp-cost" title="Permanent link">&para;</a></h3>
+<p><strong>Option 1</strong> Estimate Cost based on ingested metrics.</p>
+<p><em>Step 1</em> Create a new Grafana Dashboard:</p>
+<div class="codehilite"><pre><span></span><code>Data Source: Managed Service for Prometheus
+
+Metric Browser: `rate(gcm_export_samples_exported_total{job=~&quot;.+&quot;,instance=~&quot;.+&quot;}[5m])`
+
+Step: 10
+</code></pre></div>
+
+<p><img alt="alt text" src="../images/gmp_cost_calculation.png" /></p>
+<p>Example calculation:</p>
+<p>N1. 770 Samples per second based on Dashboard value</p>
+<p>N2. 770 samples per second * 2628000 seconds/mo = 2023 B samples/mo</p>
+<p>N3. Since $0.15/million samples: first 0-50 billion samples#  <a href="https://cloud.google.com/stackdriver/pricing#monitoring-costs">Reference N1</a>  </p>
+<p>N4. We can calculate final cost: 2023 B samples/mo * 0.15 = ~303$ per month </p>
+<p><strong>Option 2</strong> View your Google Cloud bill</p>
+<ol>
+<li>
+<p>In the Google Cloud console, go to the Billing page.</p>
+</li>
+<li>
+<p>If you have more than one billing account, select Go to linked billing account to view the current project's billing account. To locate a different billing account, select Manage billing accounts and choose the account for which you'd like to get usage reports.</p>
+</li>
+<li>
+<p>Select Reports.</p>
+</li>
+<li>
+<p>From the Services menu, select the Stackdriver Monitoring option.</p>
+</li>
+<li>
+<p>From the SKUs menu, select the following options:</p>
+</li>
+<li>
+<p>Prometheus Samples Ingested</p>
+</li>
+<li>Monitoring API Requests</li>
+</ol>
 <h2 id="7-cleanup">7 Cleanup<a class="headerlink" href="#7-cleanup" title="Permanent link">&para;</a></h2>
+<p>Delete Kubernetes cluster as it will enquire cost both for GKE and GMP.</p>
 <p>Uninstall Helm Charts:</p>
 <div class="codehilite"><pre><span></span><code>helm uninstall prometheus-stack -n monitoring
 </code></pre></div>
