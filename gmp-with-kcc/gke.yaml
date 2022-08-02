@@ -1,0 +1,36 @@
+apiVersion: container.cnrm.cloud.google.com/v1beta1
+kind: ContainerCluster
+metadata:
+  labels:
+    availability: dev
+    target-audience: development
+  name: gmp-enabled-cluster
+spec:
+  description: A GMP enabled cluster
+  location: northamerica-northeast1-a
+  initialNodeCount: 1
+  networkingMode: ROUTES
+  clusterIpv4Cidr: 10.96.0.0/14
+  masterAuthorizedNetworksConfig:
+    cidrBlocks:
+      - displayName: Trusted external network
+        cidrBlock: 10.2.0.0/16
+  addonsConfig:
+    gcePersistentDiskCsiDriverConfig:
+      enabled: true
+    horizontalPodAutoscaling:
+      disabled: true
+    httpLoadBalancing:
+      disabled: false
+  loggingConfig:
+    enableComponents:
+      - "SYSTEM_COMPONENTS"
+      - "WORKLOADS"
+  monitoringConfig:
+    enableComponents:
+      - "SYSTEM_COMPONENTS"
+    managedPrometheus:
+      enabled: true
+  workloadIdentityConfig:
+    # Replace ${PROJECT_ID?} with your project ID.
+    workloadPool: "${PROJECT_ID?}.svc.id.goog"
