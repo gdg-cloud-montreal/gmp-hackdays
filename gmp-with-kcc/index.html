@@ -14,7 +14,7 @@
     
     
       
-        <title>Gmp with kcc - GMP Hack Days</title>
+        <title>Automate GMP deployument with KCC - GMP Hack Days</title>
       
     
     
@@ -60,6 +60,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#deploy-gke-with-gmp-enabled-via-kubernetes-config-connector" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -85,7 +90,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gmp with kcc
+              Automate GMP deployument with KCC
             
           </span>
         </div>
@@ -303,6 +308,138 @@
   
 
     
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        Setting up GMP with KCC
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Setting up GMP with KCC" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Setting up GMP with KCC
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Automate GMP deployument with KCC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Automate GMP deployument with KCC
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-deploy-config-controller-gke-cluster" class="md-nav__link">
+    1. Deploy Config Controller GKE Cluster
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Deploy Config Controller GKE Cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-manual-install" class="md-nav__link">
+    Option 1: Manual Install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-via-config-controller" class="md-nav__link">
+    Option 2: Via Config Controller
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-deploy-the-gmp-enabled-gke-cluster-via-config-controller" class="md-nav__link">
+    2. Deploy the GMP Enabled GKE Cluster via Config Controller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verifying-installation" class="md-nav__link">
+    3. Verifying Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cleanup-for-option-1" class="md-nav__link">
+    4. Cleanup for Option #1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cleanup-for-option-2" class="md-nav__link">
+    5. Cleanup for Option #2
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -310,15 +447,272 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-deploy-config-controller-gke-cluster" class="md-nav__link">
+    1. Deploy Config Controller GKE Cluster
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Deploy Config Controller GKE Cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-manual-install" class="md-nav__link">
+    Option 1: Manual Install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-via-config-controller" class="md-nav__link">
+    Option 2: Via Config Controller
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-deploy-the-gmp-enabled-gke-cluster-via-config-controller" class="md-nav__link">
+    2. Deploy the GMP Enabled GKE Cluster via Config Controller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verifying-installation" class="md-nav__link">
+    3. Verifying Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cleanup-for-option-1" class="md-nav__link">
+    4. Cleanup for Option #1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cleanup-for-option-2" class="md-nav__link">
+    5. Cleanup for Option #2
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Gmp with kcc</h1>
-                
-                
+                <h1 id="deploy-gke-with-gmp-enabled-via-kubernetes-config-connector">Deploy GKE with GMP enabled via Kubernetes Config Connector<a class="headerlink" href="#deploy-gke-with-gmp-enabled-via-kubernetes-config-connector" title="Permanent link">&para;</a></h1>
+<p>To start we will need to create a cluster with the Config Connector Resources install, this can be GKE or a compliant K8s distributions (ie kind), see <a href="https://cloud.google.com/config-connector/docs/concepts/installation-types">here</a> for installation types. </p>
+<p>In this example I will be using the Manual installation type so we can use the latest version of Config Connector (1.91 at the time of this writing) and a GKE cluster so we can use Workload Identity.</p>
+<h2 id="1-deploy-config-controller-gke-cluster">1. Deploy Config Controller GKE Cluster<a class="headerlink" href="#1-deploy-config-controller-gke-cluster" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Create a Kubernetes Cluster</li>
+</ol>
+<p>In this example I will highlight the two ways to install Config Connector.</p>
+<p><strong>Option 1:</strong> Manual mode which can be used on both GKE clusters as well as other CNCF conformant clusters.</p>
+<p><strong>Option 2:</strong> Using <code>Config Controller</code> which is a pre-configured managed cluster that comes pre-loaded with Config Connector as well as Config Sync and Policy Controller. </p>
+<h3 id="option-1-manual-install">Option 1: Manual Install<a class="headerlink" href="#option-1-manual-install" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create a Kubernetes Cluster</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>gcloud container clusters create kcc-configs --machine-type &quot;e2-standard-4&quot; --image-type &quot;COS_CONTAINERD&quot; \
+--num-nodes &quot;3&quot; --enable-ip-alias --project $PROJECT_ID --zone northamerica-northeast1-a \
+--workload-pool=${PROJECT_ID}.svc.id.goog
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>gcloud container clusters get-credentials kcc-configs --region northamerica-northeast1-a
+</code></pre></div>
+
+<ol>
+<li>Install Config Connector</li>
+</ol>
+<p><strong>Step 1</strong> Download the latest Config Connector operator</p>
+<div class="codehilite"><pre><span></span><code>gsutil cp gs://configconnector-operator/latest/release-bundle.tar.gz release-bundle.tar.gz
+</code></pre></div>
+
+<p><strong>Step 2</strong>  Extract Tar</p>
+<div class="codehilite"><pre><span></span><code>tar zxvf release-bundle.tar.gz
+</code></pre></div>
+
+<p><strong>Step 3</strong> Install the Operator</p>
+<div class="codehilite"><pre><span></span><code>kubectl apply -f operator-system/configconnector-operator.yaml
+</code></pre></div>
+
+<p><strong>Step 4</strong> Create an Identity</p>
+<div class="codehilite"><pre><span></span><code>gcloud iam service-accounts create gmp-demo
+</code></pre></div>
+
+<p><strong>Step 5</strong> Assign IAM Permissions</p>
+<div class="codehilite"><pre><span></span><code>gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+--member=&quot;serviceAccount:gmp-demo@${PROJECT_ID}.iam.gserviceaccount.com&quot; \
+--role=&quot;roles/editor&quot;
+</code></pre></div>
+
+<p><strong>Step 6</strong> Bind SA to Kubernetes SA for Config Connector to use</p>
+<div class="codehilite"><pre><span></span><code>gcloud iam service-accounts add-iam-policy-binding \
+gmp-demo@${PROJECT_ID}.iam.gserviceaccount.com \
+--member=&quot;serviceAccount:${PROJECT_ID}.svc.id.goog[cnrm-system/cnrm-controller-manager]&quot; \
+--role=&quot;roles/iam.workloadIdentityUser&quot;
+</code></pre></div>
+
+<p><strong>Step 7</strong> Create Config Connector manifest</p>
+<div class="codehilite"><pre><span></span><code>cat &lt;&lt; EOF&gt;&gt; configconnector.yaml
+apiVersion: core.cnrm.cloud.google.com/v1beta1
+kind: ConfigConnector
+metadata:
+    # the name is restricted to ensure that there is only one
+    # ConfigConnector resource installed in your cluster
+    name: configconnector.core.cnrm.cloud.google.com
+spec:
+    mode: cluster
+    googleServiceAccount: &quot;gmp-demo@${PROJECT_ID}.iam.gserviceaccount.com&quot;
+EOF
+</code></pre></div>
+
+<p><strong>Step 8</strong> Deploy Config Connector</p>
+<div class="codehilite"><pre><span></span><code>kubectl apply -f configconnector.yaml
+</code></pre></div>
+
+<p><strong>Step 9</strong> Configure Namespace for the resources and annotate it.</p>
+<div class="codehilite"><pre><span></span><code>kubectl create namespace config-control
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>kubectl annotate namespace \
+config-control cnrm.cloud.google.com/project-id=${PROJECT_ID}
+</code></pre></div>
+
+<h3 id="option-2-via-config-controller">Option 2: Via Config Controller<a class="headerlink" href="#option-2-via-config-controller" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create a <a href="https://cloud.google.com/anthos-config-management/docs/concepts/config-controller-overview">Config Controller</a> instance. For this I will assume you have a <code>default</code> network  setup but you can use a network of your choosing using the <code>--network=you-network --subnet=subnet</code>.</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>gcloud services enable krmapihosting.googleapis.com \
+container.googleapis.com \
+cloudresourcemanager.googleapis.com
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>gcloud anthos config controller create gmp-recipes --location northamerica-northeast1
+</code></pre></div>
+
+<ol>
+<li>Authenticate with the Instance</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>gcloud anthos config controller get-credentials gmp-recipes \
+    --location northamerica-northeast1
+</code></pre></div>
+
+<ol>
+<li>Assign permissions to the Config Connector SA</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>export SA_EMAIL=&quot;$(kubectl get ConfigConnectorContext -n config-control \
+    -o jsonpath=&#39;{.items[0].spec.googleServiceAccount}&#39; 2&gt; /dev/null)&quot;
+gcloud projects add-iam-policy-binding &quot;${PROJECT_ID}&quot; \
+    --member &quot;serviceAccount:${SA_EMAIL}&quot; \
+    --role &quot;roles/owner&quot; \
+    --project &quot;${PROJECT_ID}&quot;
+</code></pre></div>
+
+<p>The install will take about 15 minutes as the cluster gets provisioned and the resources are installed.</p>
+<h2 id="2-deploy-the-gmp-enabled-gke-cluster-via-config-controller">2. Deploy the GMP Enabled GKE Cluster via Config Controller<a class="headerlink" href="#2-deploy-the-gmp-enabled-gke-cluster-via-config-controller" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Create the Container Cluster manifest.</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>cat &gt;gmp-cluster.yaml &lt;&lt;EOL
+apiVersion: container.cnrm.cloud.google.com/v1beta1
+kind: ContainerCluster
+metadata:
+    labels:
+        availability: dev
+        target-audience: gdg-cloud-montreal
+    name: gmp-enabled-cluster
+    namespace: config-control
+spec:
+    description: A GMP enabled cluster
+    location: northamerica-northeast1-a
+    initialNodeCount: 1
+    networkingMode: ROUTES
+    clusterIpv4Cidr: 10.96.0.0/14
+    masterAuthorizedNetworksConfig:
+        cidrBlocks:
+        - displayName: Trusted external network
+          cidrBlock: 10.2.0.0/16
+    addonsConfig:
+        gcePersistentDiskCsiDriverConfig:
+            enabled: true
+        horizontalPodAutoscaling:
+            disabled: true
+        httpLoadBalancing:
+            disabled: false
+    loggingConfig:
+        enableComponents:
+        - &quot;SYSTEM_COMPONENTS&quot;
+        - &quot;WORKLOADS&quot;
+    monitoringConfig:
+        enableComponents:
+        - &quot;SYSTEM_COMPONENTS&quot;
+        managedPrometheus:
+            enabled: true
+    workloadIdentityConfig:
+        # Replace ${PROJECT_ID?} with your project ID.
+        workloadPool: &quot;${PROJECT_ID}.svc.id.goog&quot;
+EOL
+</code></pre></div>
+
+<ol>
+<li>Deploy the Manifest.</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>kubectl apply -f gmp-cluster.yaml
+</code></pre></div>
+
+<h2 id="3-verifying-installation">3. Verifying Installation<a class="headerlink" href="#3-verifying-installation" title="Permanent link">&para;</a></h2>
+<p>To verify the cluster is up and running we can run the following command or go to the gke console.</p>
+<div class="codehilite"><pre><span></span><code>kubectl get containerclusters -n config-control 
+</code></pre></div>
+
+<p>Output:</p>
+<div class="codehilite"><pre><span></span><code>NAME                  AGE   READY   STATUS     STATUS AGE
+gmp-enabled-cluster   22m   True    UpToDate   3m3s
+</code></pre></div>
+
+<p>Congrats, you've just deployed a GMP enabled cluster via Config Connector!</p>
+<h2 id="4-cleanup-for-option-1">4. Cleanup for Option #1<a class="headerlink" href="#4-cleanup-for-option-1" title="Permanent link">&para;</a></h2>
+<p>Delete Kubernetes clusters as it will enquire cost both for GKE and GMP.</p>
+<div class="codehilite"><pre><span></span><code>gcloud container clusters delete kcc-configs --region northamerica-northeast1-a
+gcloud container clusters delete gmp-enabled-cluster --region northamerica-northeast1-a
+</code></pre></div>
+
+<h2 id="5-cleanup-for-option-2">5. Cleanup for Option #2<a class="headerlink" href="#5-cleanup-for-option-2" title="Permanent link">&para;</a></h2>
                 
               
               
@@ -334,6 +728,25 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../gmp-multi-tenant/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Centralized Multi-tenant GMP setup with GKE Clusters in Different Projects (WIP)
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

@@ -14,7 +14,7 @@
     
     
       
-        <title>GMP scraping Nginx-Ingress metrics (WIP) - GMP Hack Days</title>
+        <title>GKE Cost Allocation - GMP Hack Days</title>
       
     
     
@@ -60,6 +60,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#gke-cost-allocation" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -85,7 +90,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GMP scraping Nginx-Ingress metrics (WIP)
+              GKE Cost Allocation
             
           </span>
         </div>
@@ -219,14 +224,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
         Managed collection with GKE Standard
@@ -266,19 +269,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../gmp-with-gkestandard-nginxingress/" class="md-nav__link">
         GMP scraping Nginx-Ingress metrics (WIP)
       </a>
-      
     </li>
   
 
@@ -362,15 +357,139 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-configure-gke-cost-allocation" class="md-nav__link">
+    1 Configure GKE Cost Allocation
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Configure GKE Cost Allocation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-enable-detailed-usage-cost-data-in-bq" class="md-nav__link">
+    1.1 Enable Detailed usage cost data in BQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-create-gke-cluster-on-gcp-with-gke-cost-allocation-enabled" class="md-nav__link">
+    1.2 Create GKE Cluster on GCP with GKE Cost Allocation enabled
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-deploy-test-application" class="md-nav__link">
+    1.3 Deploy Test Application
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Deploy Test Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#123-optional-deploy-onlineboutique-application-and-observe-app-compute-resources" class="md-nav__link">
+    1.2.3 (Optional) Deploy onlineboutique application and observe app compute resources
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup" class="md-nav__link">
+    Cleanup
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>GMP scraping Nginx-Ingress metrics (WIP)</h1>
-                
-                
+                <h1 id="gke-cost-allocation">GKE Cost Allocation<a class="headerlink" href="#gke-cost-allocation" title="Permanent link">&para;</a></h1>
+<h2 id="1-configure-gke-cost-allocation">1 Configure GKE Cost Allocation<a class="headerlink" href="#1-configure-gke-cost-allocation" title="Permanent link">&para;</a></h2>
+<h3 id="11-enable-detailed-usage-cost-data-in-bq">1.1 Enable Detailed usage cost data in BQ<a class="headerlink" href="#11-enable-detailed-usage-cost-data-in-bq" title="Permanent link">&para;</a></h3>
+<p>Ensure that you have completed the steps to <a href="https://cloud.google.com/billing/docs/how-to/export-data-bigquery">Export detailed usage cost data to BigQuery</a>. If your organization is already exporting data, you must have access to query the tables.</p>
+<h3 id="12-create-gke-cluster-on-gcp-with-gke-cost-allocation-enabled">1.2 Create GKE Cluster on GCP with GKE Cost Allocation enabled<a class="headerlink" href="#12-create-gke-cluster-on-gcp-with-gke-cost-allocation-enabled" title="Permanent link">&para;</a></h3>
+<p><strong>Step 1</strong> Enable the Google Kubernetes Engine API.</p>
+<div class="codehilite"><pre><span></span><code>gcloud services enable container.googleapis.com
+</code></pre></div>
+
+<p><strong>Step 2</strong> From the cloud shell, run the following command to create a cluster with 1 node:</p>
+<div class="codehilite"><pre><span></span><code>gcloud beta container clusters create k8s-cost-allocation-labs \
+--region us-central1 \
+--enable-ip-alias \
+--enable-network-policy \
+--machine-type &quot;n1-standard-4&quot; \
+--release-channel regular \
+--enable-cost-allocation
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>gcloud container clusters get-credentials k8s-cost-allocation-labs --region us-central1
+</code></pre></div>
+
+<h3 id="13-deploy-test-application">1.3 Deploy Test Application<a class="headerlink" href="#13-deploy-test-application" title="Permanent link">&para;</a></h3>
+<h4 id="123-optional-deploy-onlineboutique-application-and-observe-app-compute-resources">1.2.3 (Optional) Deploy onlineboutique application and observe app compute resources<a class="headerlink" href="#123-optional-deploy-onlineboutique-application-and-observe-app-compute-resources" title="Permanent link">&para;</a></h4>
+<p>Deploy microservices application <code>onlineboutique</code>:</p>
+<p><strong>Step 1</strong> Create Namespace <code>onlineboutique</code></p>
+<div class="codehilite"><pre><span></span><code>kubectl create ns onlineboutique
+</code></pre></div>
+
+<p><strong>Step 2</strong> Deploy Microservice application</p>
+<div class="codehilite"><pre><span></span><code>git clone https://github.com/GoogleCloudPlatform/microservices-demo.git
+cd microservices-demo
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>kubens onlineboutique
+kubectl apply -f ./release/kubernetes-manifests.yaml
+</code></pre></div>
+
+<p><strong>Step 3</strong> Verify Deployment:</p>
+<div class="codehilite"><pre><span></span><code>kubectl get pods
+</code></pre></div>
+
+<p><strong>Step 4</strong> Observe Detailed Billing Information for Namespaces:</p>
+<p><strong>Step 5</strong> Observe Detailed Billing Information for Pods:</p>
+<h2 id="cleanup">Cleanup<a class="headerlink" href="#cleanup" title="Permanent link">&para;</a></h2>
+<p>Delete Kubernetes clusters as it will enquire cost:</p>
+<div class="codehilite"><pre><span></span><code>gcloud container clusters delete k8s-cost-allocation-labs --region us-central1
+</code></pre></div>
                 
               
               
@@ -386,39 +505,6 @@
       
         
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../gmp-with-gkestandard-flientbit/" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              GMP scraping Fluent-bit metrics (WIP)
-            </div>
-          </div>
-        </a>
-      
-      
-        <a href="../gmp-for-gcp-cloud-resources/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              GMP quering Google Cloud Metrics with PromQL and Grafana (WIP)
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
