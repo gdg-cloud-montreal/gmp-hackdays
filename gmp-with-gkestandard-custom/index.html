@@ -724,8 +724,8 @@ EOF
 <p>Creation of <code>monitoring</code> can be done in application namespace as well</p>
 </div>
 <p><strong>Step 6</strong> Verify that your Prometheus data is being exported to Managed Service for Prometheus:</p>
-<p>In the Google Cloud console, go to <code>Monitoring</code>
-In the Monitoring navigation pane, click <code>Managed Prometheus</code></p>
+<p>In the Google Cloud console, go to <code>Monitoring</code></p>
+<p>In the Monitoring navigation pane, click <code>Managed Prometheus</code></p>
 <p>Run following queries:</p>
 <div class="codehilite"><pre><span></span><code>up
 </code></pre></div>
@@ -733,6 +733,10 @@ In the Monitoring navigation pane, click <code>Managed Prometheus</code></p>
 <div class="codehilite"><pre><span></span><code>http_requests_total{code=&quot;200&quot;,method=&quot;get&quot;}
 </code></pre></div>
 
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>We can see Prometheus data is being exported to Managed Service for Prometheus</p>
+</div>
 <h2 id="2-configure-prometheus-ui-and-grafana-dashboards">2 Configure Prometheus UI and Grafana Dashboards<a class="headerlink" href="#2-configure-prometheus-ui-and-grafana-dashboards" title="Permanent link">&para;</a></h2>
 <h3 id="21-verify-sa-account-has-correct-permissions">2.1 Verify SA account has correct permissions.<a class="headerlink" href="#21-verify-sa-account-has-correct-permissions" title="Permanent link">&para;</a></h3>
 <p><strong>Option 1:</strong> Using GKE with <code>default</code> Compute Service Account, should have all required permissions as it is using Editor role (roles/editor) on the project. (without WI enabled)</p>
